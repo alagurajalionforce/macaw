@@ -1,8 +1,8 @@
-import "../App.css";
-import contact from "../Images/Mask group (3).png";
+import '../App.css'
+import contact from '../Images/Mask group (3).png'
 
-import "../Styles/About.css";
-import "../Styles/Products.css";
+import '../Styles/About.css'
+import '../Styles/Products.css'
 function ContactUs() {
   return (
     <div>
@@ -50,14 +50,29 @@ function ContactUs() {
       </section>
       <section>
         <div className="map-section">
-          <p className="store-locator">Store Locator</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <p className="store-locator">Store Locator</p>
+            <input
+              type="text"
+              style={{
+                border: '1px solid #146AB0',
+                borderRadius: '10px',
+                fontFamily: 'Comfortaa',
+                fontWeight: 400,
+                width: '257px',
+                height: '36px',
+                fontSize: '16px',
+              }}
+              placeholder="Enter Pincode"
+            />
+          </div>
+
           <div className="map-location">
             <div className="scroll">
               <div className="map-location-one">
                 <p className="map-header">Store ABC</p>
                 <div className="d-flex">
-                <div className="w-70">
-                  
+                  <div className="w-70">
                     <p className="map-content pd">
                       Opens 10AM - Closes 8PM | PH: 9876543210
                     </p>
@@ -66,12 +81,11 @@ function ContactUs() {
                     </p>
                     <p className="km pd">5.6 km (7 mins)</p>
                     <p className="products-services">PRODUCTS & SERVICES </p>
-                 
-                </div>
-                <div className="w-30 d-flex">
-                  <div className="blue"></div>
-                  <div className="white"></div>
-                </div>
+                  </div>
+                  <div className="w-30 d-flex">
+                    <div className="blue"></div>
+                    <div className="white"></div>
+                  </div>
                 </div>
                 <p className="border"></p>
               </div>
@@ -111,7 +125,7 @@ function ContactUs() {
         </div>
       </section>
     </div>
-  );
+  )
 }
 
-export default ContactUs;
+export default ContactUs

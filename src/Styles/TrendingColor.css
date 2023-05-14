@@ -36,3 +36,10 @@
     background-color: white;
     font-size: 18px;
 }
+
+.img-cards{
+    margin: 0 25px;
+}
+.img-cards img{
+    width: 100%;
+}

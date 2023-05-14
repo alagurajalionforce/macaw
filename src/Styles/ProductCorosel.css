@@ -37,3 +37,9 @@
   transform: scale(0.96);
   width: 550px;
 }
+
+@media (max-width: 768px) {
+  .bottom-con {
+    top: -26%;
+  }
+}

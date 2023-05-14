@@ -1,7 +1,13 @@
+import React, { useState, useRef } from 'react'
 import '../Styles/Colors.css'
 import Static from '../Images/Rectangle 28.png'
 
 function Colors() {
+  const containerRef = useRef(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [offsetX, setOffsetX] = useState(0)
+
   const colors = [
     {
       color: '#D94245',
@@ -30,6 +36,18 @@ function Colors() {
     {
       color: '#A76B4C',
       colorName: 'Beige',
+    },
+    {
+      color: '#514642',
+      colorName: 'Neutral',
+    },
+    {
+      color: '#514642',
+      colorName: 'Neutral',
+    },
+    {
+      color: '#514642',
+      colorName: 'Neutral',
     },
     {
       color: '#514642',
@@ -210,6 +228,24 @@ function Colors() {
       colorName: 'Blushing Bridge - 2190',
     },
   ]
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    setStartX(e.clientX)
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return
+    const containerWidth = containerRef.current.offsetWidth
+    const maxOffsetX = containerWidth
+    const newOffsetX = offsetX + (e.clientX - startX)
+    setOffsetX(Math.max(Math.min(maxOffsetX, newOffsetX)), 0)
+    setStartX(e.clientX)
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
   return (
     <div>
       <section className="catlog-container">
@@ -224,7 +260,7 @@ function Colors() {
               colour shade of your choice and bring your ideas to life.
             </p>
             <input
-              style={{ fontSize: '18px', width: '50rem', marginLeft: '42px' }}
+              style={{ fontSize: '18px', width: '37rem', marginLeft: '-35px' }}
               type="text"
               placeholder="Search by color name or code"
               className="typeone"
@@ -232,30 +268,48 @@ function Colors() {
           </div>
           <div className="catlog-colors">
             <div className="catlog-colors-card">
-              <div className="static-color">
+              {/* <div className="static-color">
                 <img src={Static} alt="" />
-              </div>
-              <div className="mapped-color">
-                {colors.map((product) => (
-                  <>
-                    <div
-                      className="maped-color-card"
-                      style={{ backgroundColor: product.color }}
-                    >
-                      {' '}
-                      <p
-                        style={{
-                          marginTop: '6rem',
-                          display: 'flex',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        {product.colorName}
-                      </p>
+              </div> */}
+              <div style={{ width: '50rem' }}>
+                <div
+                  className="mapped-color drag-slide-container"
+                  ref={containerRef}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                >
+                  <div
+                    className="drag-slide-content"
+                    style={{ transform: `translateX(${offsetX}px)` }}
+                  >
+                    <div className="static-color">
+                      <img src={Static} alt="" />
                     </div>
-                    <div> </div>
-                  </>
-                ))}
+                    {/* Place your content here */}
+                    {colors.map((product) => (
+                      <>
+                        <div
+                          className="maped-color-card slider-content"
+                          style={{ backgroundColor: product.color }}
+                        >
+                          {' '}
+                          <p
+                            style={{
+                              marginTop: '6rem',
+                              display: 'flex',
+                              justifyContent: 'center',
+                            }}
+                          >
+                            {product.colorName}
+                          </p>
+                        </div>
+                        <div> </div>
+                      </>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,12 +1,12 @@
 .first-cor-one {
-    box-shadow: 1px 6px 13px 5px rgba(218, 224, 230, 1);
+    box-shadow: 1px 6px 20px -1px rgba(218, 224, 230, 1);
     width: 500px;
     border-radius: 20px;
     margin-right: 40px;
 }
 
 .first-cor-two {
-    box-shadow: 1px 4px 9px 3px rgb(234, 215, 156);
+    box-shadow: 1px 4px 20px -1px rgb(234, 215, 156);
     width: 500px;
 
     border-radius: 17px;
@@ -42,3 +42,13 @@
     padding: 10px 0px 40px 20px;
     color: #707070
 }
+
+
+@media (max-width: 768px) {
+    .inspiron-container{
+        display: grid;
+    }
+    .first-cor-one{
+        margin: 0 0 20px 0 ;
+    }
+  }

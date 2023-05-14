@@ -54,6 +54,14 @@ function Products() {
       [name]: value,
     }))
   }
+  const handleWidth = (e) => {
+    setWidth(e.target.value)
+    if (e?.target?.value < 50) {
+      setWidth(0)
+    } else {
+      setWidth(100)
+    }
+  }
 
   return (
     <div>
@@ -71,7 +79,11 @@ function Products() {
           <input
             type="range"
             onChange={(e) => {
-              setWidth(e.target.value)
+              setWidth(e?.target?.value)
+            }}
+            onG
+            onMouseUp={(e) => {
+              handleWidth(e)
             }}
             value={width}
           />
@@ -86,7 +98,7 @@ function Products() {
             <div className="submit-cards">
               <div className="heading-submit">
                 <h1>Get in Touch</h1>
-                <p>
+                <p style={{fontSize:"18px",fontWeight:700}}>
                   Looking for something? Drop your query and will contact you.
                 </p>
               </div>
@@ -142,24 +154,24 @@ function Products() {
           </div>
         </div>
         <div className="yellow-banner-con">
+          <div className="yellow-ban-data">
+            <div className="banner-card-first">
+              <h1>Why Choose Us?</h1>
+            </div>
+            <div className="banner-card">
+              <img src={Whyone} alt="" />
+              <p>Expert Color Consultancy</p>
+            </div>
+            <div className="banner-card">
+              <img src={WhyTwo} alt="" />
+              <p>Professionally Trained Painters</p>
+            </div>
+            <div className="banner-card">
+              <img src={WhyThree} alt="" />
+              <p>Expert Color Consultancy</p>
+            </div>
+          </div>
           <img src={YellowBanner} alt="" />
-        </div>
-        <div className="yellow-ban-data">
-          <div className="banner-card-first">
-            <h1>Why Choose Us?</h1>
-          </div>
-          <div className="banner-card">
-            <img src={Whyone} alt="" />
-            <p>Expert Color Consultancy</p>
-          </div>
-          <div className="banner-card">
-            <img src={WhyTwo} alt="" />
-            <p>Professionally Trained Painters</p>
-          </div>
-          <div className="banner-card">
-            <img src={WhyThree} alt="" />
-            <p>Expert Color Consultancy</p>
-          </div>
         </div>
       </section>
       <section>
