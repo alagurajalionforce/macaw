@@ -25,6 +25,7 @@
 .container-card {
   width: 80%;
   margin: auto;
+  margin-top: 50px;
 }
 .flex-center {
   display: flex;
@@ -54,7 +55,7 @@
   width: 456px;
 }
 .vision-mission {
-  width: 512px;
+  width: 35rem;
   height: 495px;
   background: #ffffff;
   box-shadow: 0px 0px 15px 5px rgba(246, 178, 24, 0.3);
@@ -73,15 +74,15 @@
   height: 100%;
 }
 .vision-content {
-  margin-top: 222px;
+  margin-top: 190px;
 }
 .vision-content p {
   font-weight: 700;
   font-size: 18px;
-  line-height: 149%;
+  line-height: 110%;
   text-align: center;
   color: #000000;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 .mission {
   width: 493px;

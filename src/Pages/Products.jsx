@@ -1,191 +1,56 @@
-import React, { useEffect, useState } from 'react'
-import OurProducts from '../Components/OurProducts'
-import Trending from '../Components/TrendingColors'
-import Inspration from '../Components/Inspration'
-import '../Styles/Products.css'
-import BannerImg from '../Images/Slide-banner-03.png'
-import YellowBanner from '../Images/Whychooseus.png'
-import Whyone from '../Images/whyusimg-1.png'
-import WhyTwo from '../Images/whyusimg-2.png'
-import WhyThree from '../Images/whyusimg-3.png'
-import ProductsCorosel from '../Components/ProductsCorosel'
-import { Slide, toast } from 'react-toastify'
-import emailjs from 'emailjs-com'
+import "../App.css";
+import CEOimg from "../Images/Team 1.png";
+import "../Styles/Products.css";
+import PaintSplione from "../Images/paint-spill-3 1.png";
+import PaintSpliTwo from "../Images/paint-spill-4 1.png";
+import OurStory from "../Images/ourStory.png"
+import Aboutus from "../Images/aboutus.png"
+import Mask from "../Images/Mask group (2).png"
+
+import ppb1 from "../Images/ppb1.jpg"
+import ppb2 from "../Images/ppb2.jpg"
+import ppb3 from "../Images/ppb3.jpg"
+
+import banner from  "../Images/product-banner.jpg"
 function Products() {
-  const [width, setWidth] = useState(0)
-  const [formData, setFormData] = useState({})
-
-  useEffect(() => {
-    console.log(formData, 'FORMDATA')
-  }, [formData])
-  const onSubmit = (e) => {
-    e.preventDefault()
-    const response = emailjs
-      .send(
-        'service_t58j87f',
-        'template_ud6rocu',
-        {
-          from_name: formData?.from_name,
-          message: formData?.message,
-          mobile: formData?.mobile,
-          pincode: formData?.pincode,
-          email: formData?.email,
-        },
-        'mR866LagoSj55nRXq',
-      )
-      .then(
-        (result) => {
-          console.log('result')
-          if (result?.text == 'OK') {
-            console.log('result', result?.text)
-            alert('submitted successfully')
-          }
-        },
-        (error) => {
-          console.log(error.text)
-        },
-      )
-    // console.log(response?.,"RESPOSNE");
-  }
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-  const handleWidth = (e) => {
-    setWidth(e.target.value)
-    if (e?.target?.value < 50) {
-      setWidth(0)
-    } else {
-      setWidth(100)
-    }
-  }
-
   return (
     <div>
-      <section className="Products-container">
-        <div className="BG-img">
-          <p style={{ opacity: `${100 - width}%` }}>Add Macaw to your life</p>
-          <img
-            src={BannerImg}
-            alt=""
-            style={{ filter: `grayscale(${100 - width}%)` }}
-          />
-        </div>
-
-        <div className="slider">
-          <input
-            type="range"
-            onChange={(e) => {
-              setWidth(e?.target?.value)
-            }}
-            onG
-            onMouseUp={(e) => {
-              handleWidth(e)
-            }}
-            value={width}
-          />
-          <div className="slide-close-con">
-            <div className="slider-close" style={{ width: `${width}%` }}></div>
-          </div>
+      {/* aboutus baner start */}
+      <section className="section-gap">
+        <div className="w-100 about-us">
+          <img className="w-100 mask-img bannerimg" src={banner}/>
+          <img className="w-100" src={Aboutus}/>
+          
+          <p>Products</p>
         </div>
       </section>
-      <section className="products-body">
-        <div className="sub-con-cen">
-          <div className="submit-con">
-            <div className="submit-cards">
-              <div className="heading-submit">
-                <h1>Get in Touch</h1>
-                <p style={{fontSize:"18px",fontWeight:700}}>
-                  Looking for something? Drop your query and will contact you.
-                </p>
-              </div>
-
-              <div className="input-set-one">
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  className="typeone"
-                />
-                <input
-                  type="text"
-                  className="typetwo"
-                  placeholder="Full Name*"
-                  name="from_name"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  className="typetwo"
-                  placeholder="Mobile*"
-                  name="mobile"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="input-set-two">
-                <input
-                  type="text"
-                  className="typetwo"
-                  placeholder="Email*"
-                  name="email"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  className="typetwo"
-                  placeholder="Pincode*"
-                  name="pincode"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  className="typeone"
-                  placeholder="Message"
-                  name="message"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className="submit-btn">
-              <button onClick={(e) => onSubmit(e)}>Submit</button>
-            </div>
-          </div>
+      {/* aboutus baner end */}
+      
+      {/* our story start */}
+      <section className="section-gap">
+      <div className="d-flex container con1">
+        <div className="ppcontainer">
+          <div className="imgContainer"><img src={ppb1}/></div>
+          <div className="TextContainer"><div>Products for <br/> your <b>Interior</b></div> </div>
         </div>
-        <div className="yellow-banner-con">
-          <div className="yellow-ban-data">
-            <div className="banner-card-first">
-              <h1>Why Choose Us?</h1>
-            </div>
-            <div className="banner-card">
-              <img src={Whyone} alt="" />
-              <p>Expert Color Consultancy</p>
-            </div>
-            <div className="banner-card">
-              <img src={WhyTwo} alt="" />
-              <p>Professionally Trained Painters</p>
-            </div>
-            <div className="banner-card">
-              <img src={WhyThree} alt="" />
-              <p>Expert Color Consultancy</p>
-            </div>
-          </div>
-          <img src={YellowBanner} alt="" />
+      </div>
+      <div className="d-flex container con2">
+        <div className="ppcontainer">
+          <div className="TextContainer"><div>Products for <br/> your <b>Exterior</b></div> </div>
+          <div className="imgContainer"><img src={ppb2}/></div>
         </div>
+      </div>
+      <div className="d-flex container con3">
+        <div className="ppcontainer">
+          <div className="imgContainer"><img src={ppb3}/></div>
+          <div className="TextContainer"><div>Products for <br/>  <b>Wood & Metal</b></div> </div>
+        </div>
+      </div>
       </section>
-      <section>
-        <ProductsCorosel />
-        {/* <OurProducts /> */}
-      </section>
-      <section>
-        <Trending />
-      </section>
-      <section>
-        <Inspration />
-      </section>
+      {/* our story end */}
+      
     </div>
-  )
+  );
 }
 
-export default Products
+export default Products;

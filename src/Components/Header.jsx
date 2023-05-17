@@ -45,11 +45,12 @@ function Header() {
     <div>
       <header className="Nav-container Header">
         <div className="logo">
-          <img src={Logo} alt=""/>
+        <NavLink to="/"><img src={Logo} alt=""/></NavLink>
+          
         </div>
         {/* !isSmallScreen || */ isNavVisible ?
         <div className="Nav-list Nav">
-          <NavLink to="/">Products</NavLink>
+          <NavLink to="/Products">Products</NavLink>
           <NavLink to="/Blogs">Blogs</NavLink>
           <NavLink to="/Colors">Colors</NavLink>
           <NavLink to="/Inspiration">Inspiration</NavLink>
